@@ -1,4 +1,4 @@
-# tg-torrent-bot
+# Telegram Torrent Bot
 
 A telegram bot implementation for torrents search and download.
 
