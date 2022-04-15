@@ -1,0 +1,10 @@
+#!/bin/sh
+
+mkdir -p /tmp/tg-torrent-bot/current-downloads
+
+while read line
+do
+    export "$line"
+done < /etc/tg-torrent-bot/main.cfg
+
+node /usr/share/tg-torrent-bot/index.js
