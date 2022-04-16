@@ -1,5 +1,4 @@
 all:
-	cd src/js/ && npm install
 
 install:
 	mkdir -p ${DESTDIR}/usr/bin
