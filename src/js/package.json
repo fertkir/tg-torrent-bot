@@ -1,6 +1,6 @@
 {
   "name": "tg-torrent-bot",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "A telegram bot implementation for torrents search and download.",
   "main": "index.js",
   "scripts": {

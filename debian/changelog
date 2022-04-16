@@ -1,3 +1,9 @@
+tg-torrent-bot (0.3) focal; urgency=medium
+
+  * npm install fix
+
+ -- Kirill Fertikov <kirill.fertikov@gmail.com>  Sat, 16 Apr 2022 15:15:22 +0000
+
 tg-torrent-bot (0.2) focal; urgency=medium
 
   * Build dependencies fix.
