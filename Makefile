@@ -9,7 +9,7 @@ install:
 	cp src/tg-torrent-bot ${DESTDIR}/usr/bin
 	cp -r src/js ${DESTDIR}/usr/share/tg-torrent-bot
 	cp src/main.cfg ${DESTDIR}/etc/tg-torrent-bot
-	cp src/tg-torrent-bot.service /etc/systemd/system/
+	cp src/tg-torrent-bot.service ${DESTDIR}/etc/systemd/system/
 	systemctl start tg-torrent-bot
 	systemctl enable tg-torrent-bot
 
@@ -26,7 +26,7 @@ dput:
 
 new_version:
 	gbp dch --debian-branch=main --git-author --distribution=focal --dch-opt=--upstream
-	git add debian/changelog
+	git add debian/
 	git commit -m "version ${current_version}"
 	git push
 
