@@ -11,3 +11,18 @@ install:
 	cp src/tg-torrent-bot.service /etc/systemd/system/
 	systemctl start tg-torrent-bot
 	systemctl enable tg-torrent-bot
+
+npm_install:
+	cd src/js
+	npm install
+	cd ../..
+
+debuild:
+	debuild -S | tee /tmp/debuild.log 2>&1
+
+dput:
+	cd ..
+	dput ppa:fertkir/tg-torrent-bot tg-torrent-bot_0.6_source.changes
+	cd tg-torrent-bot
+
+publish: npm_install debuild dput
