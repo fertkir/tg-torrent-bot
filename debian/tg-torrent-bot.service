@@ -8,6 +8,8 @@ Type=simple
 Restart=always
 RestartSec=1
 ExecStart=tg-torrent-bot
+User=tg-torrent-bot
+Group=tg-torrent-bot
 
 [Install]
 WantedBy=multi-user.target

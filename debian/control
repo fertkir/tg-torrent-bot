@@ -2,7 +2,7 @@ Source: tg-torrent-bot
 Section: web
 Priority: optional
 Maintainer: Kirill Fertikov <kirill.fertikov@gmail.com>
-Build-Depends: debhelper-compat (= 12)
+Build-Depends: debhelper-compat (= 12), dh-sysuser
 Standards-Version: 4.4.1
 Homepage: https://github.com/fertkir
 #Vcs-Browser: https://github.com/fertkir/tg-torrent-bot
@@ -10,7 +10,7 @@ Homepage: https://github.com/fertkir
 
 Package: tg-torrent-bot
 Architecture: any
-Depends: nodejs
+Depends: nodejs, sysuser-helper
 Suggests: transmission-daemon
 Description: A telegram bot implementation for torrents search and download.
  You can run the bot on your home network server, and watch downloaded movies using Kodi or share them via DLNA.
