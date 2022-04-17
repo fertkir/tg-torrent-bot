@@ -40,8 +40,8 @@ const RUTRACKER_CREDENTIALS = {
     username: process.env.RUTRACKER_USERNAME,
     password: process.env.RUTRACKER_PASSWORD
 };
-const TORRENTS_DIR = `${os.homedir}/Torrents`;
-const ALLOWED_USERS =  process.env.ALLOWED_USERS.split(',').map(Number);
+const TORRENTS_DIR = process.env.TORRENTS_DIR;
+const ALLOWED_USERS = process.env.ALLOWED_USERS.split(',').map(Number);
 
 const rutracker = new RutrackerApi(
 	process.env.RUTRACKER_HOST, 
