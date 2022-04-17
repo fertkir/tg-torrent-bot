@@ -1,3 +1,9 @@
+tg-torrent-bot (0.6) focal; urgency=medium
+
+  * systemd setup
+
+ -- Kirill Fertikov <kirill.fertikov@gmail.com>  Sun, 17 Apr 2022 08:29:13 +0000
+
 tg-torrent-bot (0.5) focal; urgency=medium
 
   * uploading with pre-loaded node_modules
