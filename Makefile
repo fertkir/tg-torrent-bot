@@ -9,7 +9,6 @@ install:
 	cp src/tg-torrent-bot ${DESTDIR}/usr/bin
 	cp -r src/js ${DESTDIR}/usr/share/tg-torrent-bot
 	cp src/main.cfg ${DESTDIR}/etc/tg-torrent-bot
-	useradd --system tg-torrent-bot
 	cp src/tg-torrent-bot.service /etc/systemd/system/
 	systemctl start tg-torrent-bot
 	systemctl enable tg-torrent-bot
@@ -23,9 +22,7 @@ debuild:
 	debuild -S | tee /tmp/debuild.log 2>&1
 
 dput:
-	cd ..
-	dput ppa:fertkir/tg-torrent-bot tg-torrent-bot_${current_version}_source.changes
-	cd tg-torrent-bot
+	dput ppa:fertkir/tg-torrent-bot ../tg-torrent-bot_${current_version}_source.changes
 
 new_version:
 	gbp dch --debian-branch=main --git-author --distribution=focal --dch-opt=--upstream
