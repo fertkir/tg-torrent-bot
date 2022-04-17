@@ -9,9 +9,6 @@ install:
 	cp src/tg-torrent-bot ${DESTDIR}/usr/bin
 	cp -r src/js ${DESTDIR}/usr/share/tg-torrent-bot
 	cp src/main.cfg ${DESTDIR}/etc/tg-torrent-bot
-	cp src/tg-torrent-bot.service ${DESTDIR}/etc/systemd/system
-	systemctl start tg-torrent-bot
-	systemctl enable tg-torrent-bot
 
 npm_install:
 	cd src/js
