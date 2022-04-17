@@ -11,9 +11,7 @@ install:
 	cp src/main.cfg ${DESTDIR}/etc/tg-torrent-bot
 
 npm_install:
-	cd src/js
-	npm install
-	cd ../..
+	cd src/js; npm install; cd ../..
 
 debuild:
 	debuild -S | tee /tmp/debuild.log 2>&1
