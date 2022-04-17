@@ -1,3 +1,5 @@
+current_version := $$(head -1 debian/changelog | cut -d '(' -f2 | cut -d ')' -f1)
+
 all:
 
 install:
@@ -22,7 +24,13 @@ debuild:
 
 dput:
 	cd ..
-	dput ppa:fertkir/tg-torrent-bot tg-torrent-bot_0.6_source.changes
+	dput ppa:fertkir/tg-torrent-bot tg-torrent-bot_${current_version}_source.changes
 	cd tg-torrent-bot
 
-publish: npm_install debuild dput
+new_version:
+	gbp dch --debian-branch=main --git-author --distribution=focal --dch-opt=--upstream
+	git add debian/changelog
+	git commit -m "version ${current_version}"
+	git push
+
+publish: npm_install new_version debuild dput
