@@ -1,3 +1,9 @@
+tg-torrent-bot (0.17) focal; urgency=medium
+
+  * improvements to build
+
+ -- Kirill Fertikov <kirill.fertikov@gmail.com>  Tue, 19 Apr 2022 23:17:37 +0300
+
 tg-torrent-bot (0.16) focal; urgency=medium
 
   * improve Makefile
