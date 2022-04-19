@@ -40,4 +40,4 @@ new_version:
 
 publish: clean new_version build
 	cd ${build_copy}; debuild -S; cd ${repo_root}
-	cd ${build}; dput ppa:fertkir/tg-torrent-bot ../tg-torrent-bot_${current_version}_source.changes; cd ${repo_root}
+	cd ${build}; dput ppa:fertkir/tg-torrent-bot ${build}/tg-torrent-bot_${current_version}_source.changes; cd ${repo_root}
