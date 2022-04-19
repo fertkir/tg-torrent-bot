@@ -26,5 +26,5 @@ new_version:
 	git commit -m "version ${current_version}"
 	git push
 
-publish: clean new_version build-src
-	dput ppa:fertkir/tg-torrent-bot ${build}/tg-torrent-bot_${current_version}_source.changes;
+publish:
+	dput ppa:fertkir/tg-torrent-bot ${repo_root}/tg-torrent-bot_${current_version}_source.changes;

@@ -8,6 +8,7 @@ node_modules
 *.substvars
 *.dsc
 *.tar.xz
+*.upload
 debhelper-build-stamp
 /src/debian/tg-torrent-bot
 /src/debian/files
