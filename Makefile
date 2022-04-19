@@ -8,12 +8,17 @@ clean:
 npm_install:
 	cd ${repo_root}/src/js; npm install; cd ${repo_root}
 
-build: npm_install
+prepare-build: clean npm_install
 	mkdir -p ${build}
 	cp -r ${repo_root}/debian ${build}/
 	cp -r ${repo_root}/src ${build}/
 	cp ${repo_root}/DebianMakefile ${build}/Makefile
+
+build-deb: prepare-build
 	cd ${build}; debuild -b; cd ${repo_root}
+
+build-src: prepare-build
+	cd ${build}; debuild -S; cd ${repo_root}
 
 new_version:
 	gbp dch --debian-branch=main --git-author --distribution=focal --dch-opt=--upstream
@@ -21,6 +26,5 @@ new_version:
 	git commit -m "version ${current_version}"
 	git push
 
-publish: clean new_version build
-	cd ${build}; debuild -S; cd ${repo_root}
+publish: clean new_version build-src
 	dput ppa:fertkir/tg-torrent-bot ${build}/tg-torrent-bot_${current_version}_source.changes;
