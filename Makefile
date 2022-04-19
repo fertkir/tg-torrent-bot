@@ -36,6 +36,6 @@ new_version:
 	git commit -m "version ${current_version}"
 	git push
 
-publish: build new_version
+publish: clean new_version build
 	cd ${build}; debuild -S; cd ../..
 	cd build; dput ppa:fertkir/tg-torrent-bot ../tg-torrent-bot_${current_version}_source.changes; cd ..
