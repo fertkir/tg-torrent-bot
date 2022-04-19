@@ -1,2 +1,9 @@
 node_modules
-build
+*.build
+*.buildinfo
+*.changes
+*.deb
+*.debhelper
+*.substvars
+/src/debian/tg-torrent-bot
+debhelper-build-stamp

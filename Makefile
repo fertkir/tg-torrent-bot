@@ -6,31 +6,26 @@ build_copy := ${build}/tg-torrent-bot
 all:
 
 install:
-# 	mkdir -p ${DESTDIR}/usr/bin
-# 	mkdir -p ${DESTDIR}/usr/share
-# 	mkdir -p ${DESTDIR}/etc/tg-torrent-bot
-# 	cp src/tg-torrent-bot ${DESTDIR}/usr/bin
-# 	cp -r src/js ${DESTDIR}/usr/share/tg-torrent-bot
-# 	cp src/main.cfg ${DESTDIR}/etc/tg-torrent-bot
+	mkdir -p ${DESTDIR}/usr/bin
+	mkdir -p ${DESTDIR}/usr/share
+	mkdir -p ${DESTDIR}/etc/tg-torrent-bot
+	cp src/tg-torrent-bot ${DESTDIR}/usr/bin
+	cp -r src/js ${DESTDIR}/usr/share/tg-torrent-bot
+	cp src/main.cfg ${DESTDIR}/etc/tg-torrent-bot
 
-clean:
-	rm -rf ${repo_root}/src/js/node_modules
-	rm -rf ${build}
+# clean:
+# 	rm -rf ${repo_root}/src/js/node_modules
+# 	rm -rf ${build}
 
 npm_install:
 	cd ${repo_root}/src/js; npm install; cd ${repo_root}
 
 build: npm_install
-	mkdir -p ${build_copy}/usr/bin
-	mkdir -p ${build_copy}/usr/share
-	mkdir -p ${build_copy}/etc/tg-torrent-bot
-	cp -r debian ${build_copy}/
-	cp src/tg-torrent-bot ${build_copy}/usr/bin
-	cp src/main.cfg ${build_copy}/etc/tg-torrent-bot
-	cp -r src/js ${build_copy}/usr/share/tg-torrent-bot
-
-build-deb:
-	cd ${build_copy}; debuild -b; cd ${repo_root}
+# 	mkdir -p ${build_copy}
+# 	cp Makefile ${build_copy}/
+# 	cp -r debian ${build_copy}/
+# 	cp -r src ${build_copy}/
+	cd ${repo_root}/src; debuild -b; cd ${repo_root}
 
 new_version:
 	gbp dch --debian-branch=main --git-author --distribution=focal --dch-opt=--upstream
