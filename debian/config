@@ -1,0 +1,24 @@
+#!/bin/sh -e
+#
+# Based on example from here: http://manpages.ubuntu.com/manpages/bionic/man7/debconf-devel.7.html
+#
+
+CONFIGFILE=/etc/tg-torrent-bot/main.conf
+
+. /usr/share/debconf/confmodule
+
+# Load config file, if it exists.
+if [ -e $CONFIGFILE ]; then
+	. $CONFIGFILE || true
+	# Store values from config file into
+	# debconf db.
+	db_set tg-torrent-bot/telegram_token "$TELEGRAM_TOKEN"
+	db_set tg-torrent-bot/rutracker_username "$RUTRACKER_USERNAME"
+	db_set tg-torrent-bot/rutracker_password "$RUTRACKER_PASSWORD"
+fi
+
+# Ask questions.
+db_input high tg-torrent-bot/telegram_token || true
+db_input high tg-torrent-bot/rutracker_username || true
+db_input high tg-torrent-bot/rutracker_password || true
+db_go || true

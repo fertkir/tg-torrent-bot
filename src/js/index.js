@@ -41,7 +41,7 @@ const RUTRACKER_CREDENTIALS = {
     password: process.env.RUTRACKER_PASSWORD
 };
 const TORRENTS_DIR = process.env.TORRENTS_DIR;
-const ALLOWED_USERS = process.env.ALLOWED_USERS.split(',').map(Number);
+const ALLOWED_USERS = (process.env.ALLOWED_USERS || '').split(',').filter(Number).map(Number);
 
 const rutracker = new RutrackerApi(
 	process.env.RUTRACKER_HOST, 
@@ -59,7 +59,7 @@ const bot = new TelegramBot(
 
 // main logic
 bot.onText(/^[^\/]/, (msg) => {
-    if (!ALLOWED_USERS.includes(msg.from.id)) {
+    if (isForbiddenUser(msg.from.id)) {
         return;
     }
     var text = msg.text;
@@ -86,6 +86,10 @@ bot.onText(/^[^\/]/, (msg) => {
         });
 });
 
+function isForbiddenUser(userId) {
+    return ALLOWED_USERS.length > 0 && !ALLOWED_USERS.includes(userId);
+}
+
 function wrapQuery(query) {
     return query()
         .catch(e => {
@@ -98,7 +102,7 @@ function wrapQuery(query) {
 
 // downloading .torrent file
 bot.onText(/\/d_(.+)/, (msg, match) => {
-    if (!ALLOWED_USERS.includes(msg.from.id)) {
+    if (isForbiddenUser(msg.from.id)) {
         return;
     }
     const param = match[1];
@@ -117,7 +121,7 @@ bot.onText(/\/d_(.+)/, (msg, match) => {
 
 // getting magnet link
 bot.onText(/\/m_(.+)/, (msg, match) => {
-    if (!ALLOWED_USERS.includes(msg.from.id)) {
+    if (isForbiddenUser(msg.from.id)) {
         return;
     }
     const param = match[1];
@@ -128,7 +132,7 @@ bot.onText(/\/m_(.+)/, (msg, match) => {
 
 // help
 bot.onText(/^\/start|^\/help/, (msg) => {
-    if (!ALLOWED_USERS.includes(msg.from.id)) {
+    if (isForbiddenUser(msg.from.id)) {
         return;
     }
     const helpMsg = "Отправьте мне название фильма, который хотите скачать.\n"

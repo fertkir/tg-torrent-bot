@@ -10,7 +10,7 @@ Homepage: https://github.com/fertkir
 
 Package: tg-torrent-bot
 Architecture: any
-Depends: nodejs, sysuser-helper
+Depends: nodejs, sysuser-helper, debconf
 Suggests: transmission-daemon
 Description: A telegram bot implementation for torrents search and download.
  You can run the bot on your home network server, and watch downloaded movies using Kodi or share them via DLNA.

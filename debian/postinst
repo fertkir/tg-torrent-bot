@@ -1,0 +1,35 @@
+#!/bin/sh -e
+#
+# Based on example from here: http://manpages.ubuntu.com/manpages/bionic/man7/debconf-devel.7.html
+#
+
+CONFIGFILE=/etc/tg-torrent-bot/main.conf
+
+. /usr/share/debconf/confmodule
+
+# Substitute in the values from the debconf db.
+# There are obvious optimizations possible here.
+# The cp before the sed ensures we do not mess up
+# the config file's ownership and permissions.
+db_get tg-torrent-bot/telegram_token
+TELEGRAM_TOKEN="$RET"
+db_get tg-torrent-bot/rutracker_username
+RUTRACKER_USERNAME="$RET"
+db_get tg-torrent-bot/rutracker_password
+RUTRACKER_PASSWORD="$RET"
+cp -a -f $CONFIGFILE $CONFIGFILE.tmp
+
+# If the admin deleted or commented some variables but then set
+# them via debconf, (re-)add them to the conffile.
+test -z "$TELEGRAM_TOKEN" || grep -Eq '^ *TELEGRAM_TOKEN=' $CONFIGFILE || \
+    echo "TELEGRAM_TOKEN=" >> $CONFIGFILE
+test -z "$RUTRACKER_USERNAME" || grep -Eq '^ *RUTRACKER_USERNAME=' $CONFIGFILE || \
+    echo "RUTRACKER_USERNAME=" >> $CONFIGFILE
+test -z "$RUTRACKER_PASSWORD" || grep -Eq '^ *RUTRACKER_PASSWORD=' $CONFIGFILE || \
+    echo "RUTRACKER_PASSWORD=" >> $CONFIGFILE
+
+sed -e "s/^ *TELEGRAM_TOKEN=.*/TELEGRAM_TOKEN=\"$TELEGRAM_TOKEN\"/" \
+    -e "s/^ *RUTRACKER_USERNAME=.*/RUTRACKER_USERNAME=\"$RUTRACKER_USERNAME\"/" \
+    -e "s/^ *RUTRACKER_PASSWORD=.*/RUTRACKER_PASSWORD=\"$RUTRACKER_PASSWORD\"/" \
+    < $CONFIGFILE > $CONFIGFILE.tmp
+mv -f $CONFIGFILE.tmp $CONFIGFILE

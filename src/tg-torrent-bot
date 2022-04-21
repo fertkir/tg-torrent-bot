@@ -1,10 +1,10 @@
 #!/bin/sh
 
-mkdir -p /tmp/tg-torrent-bot/current-downloads
+#mkdir -p /tmp/tg-torrent-bot/current-downloads
 
-while read line
-do
-    export "$line"
-done < /etc/tg-torrent-bot/main.cfg
+# exporting all variables from config
+set -a
+. /etc/tg-torrent-bot/main.conf
+set +a
 
 node /usr/share/tg-torrent-bot/index.js
