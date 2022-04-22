@@ -74,7 +74,7 @@ bot.onText(/^[^\/]/, (msg) => {
                 .map(torrent => {
                     return `${torrent.title}\n`
                         + `${torrent.id}\n`
-                        + `[Описание](${process.env.RUTRACKER_MIRROR}/forum/viewtopic.php?t=${torrent.id})\n`
+                        + `[Описание](${process.env.RUTRACKER_HOST}/forum/viewtopic.php?t=${torrent.id})\n`
                         + `S ${torrent.seeds} | L ${torrent.leeches} | Скачали ${torrent.downloads} | `
                         + `Reg ${moment(torrent.registered).format("YYYY-MM-DD")} | ` 
                         + `Размер ${pretty(torrent.size)}\n`
