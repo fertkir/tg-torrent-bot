@@ -1,3 +1,17 @@
+tg-torrent-bot (0.18) focal; urgency=medium
+
+  * more improvements
+  * configured debconf
+  * config file
+  * added token for auto-generated postinst code
+  * removed unnecessary config property
+  * added torrents directory setup to debconf
+  * sed escaping
+  * added ru localization
+  * README update
+
+ -- Kirill Fertikov <kirill.fertikov@gmail.com>  Fri, 22 Apr 2022 23:24:50 +0300
+
 tg-torrent-bot (0.17) focal; urgency=medium
 
   * improvements to build
