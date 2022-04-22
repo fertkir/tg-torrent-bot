@@ -114,7 +114,7 @@ bot.onText(/\/d_(.+)/, (msg, match) => {
 
     wrapQuery(() => rutracker.download(param))
         .then(stream => {
-            bot.sendMessage(msg.chat.id, 'Отправлено на закачку');
+            bot.sendMessage(msg.chat.id, 'Отправлено на скачивание');
             return stream.pipe(fs.createWriteStream(`${TORRENTS_DIR}/${param}.torrent`))
         });
 });

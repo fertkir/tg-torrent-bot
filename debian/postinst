@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 #
 # Based on example from here: http://manpages.ubuntu.com/manpages/bionic/man7/debconf-devel.7.html
 #
@@ -32,10 +32,10 @@ test -z "$RUTRACKER_PASSWORD" || grep -Eq '^ *RUTRACKER_PASSWORD=' $CONFIGFILE |
 test -z "$TORRENTS_DIR" || grep -Eq '^ *TORRENTS_DIR=' $CONFIGFILE || \
     echo "TORRENTS_DIR=" >> $CONFIGFILE
 
-sed -e "s/^ *TELEGRAM_TOKEN=.*/TELEGRAM_TOKEN=\"$TELEGRAM_TOKEN\"/" \
-    -e "s/^ *RUTRACKER_USERNAME=.*/RUTRACKER_USERNAME=\"$RUTRACKER_USERNAME\"/" \
-    -e "s/^ *RUTRACKER_PASSWORD=.*/RUTRACKER_PASSWORD=\"$RUTRACKER_PASSWORD\"/" \
-    -e "s/^ *TORRENTS_DIR=.*/TORRENTS_DIR=\"$TORRENTS_DIR\"/" \
+sed -e "s#^ *TELEGRAM_TOKEN=.*#TELEGRAM_TOKEN=\"${TELEGRAM_TOKEN//#/\\#}\"#" \
+    -e "s#^ *RUTRACKER_USERNAME=.*#RUTRACKER_USERNAME=\"${RUTRACKER_USERNAME//#/\\#}\"#" \
+    -e "s#^ *RUTRACKER_PASSWORD=.*#RUTRACKER_PASSWORD=\"${RUTRACKER_PASSWORD//#/\\#}\"#" \
+    -e "s#^ *TORRENTS_DIR=.*#TORRENTS_DIR=\"${TORRENTS_DIR//#/\\#}\"#" \
     < $CONFIGFILE > $CONFIGFILE.tmp
 mv -f $CONFIGFILE.tmp $CONFIGFILE
 
