@@ -1,14 +1,20 @@
 Template: tg-torrent-bot/telegram_token
 Type: string
-Description: Enter telegram bot token
+Description: 1/4. Enter telegram bot token
  Open @BotFather bot in Telegram and get a token for the bot.
 
 Template: tg-torrent-bot/rutracker_username
 Type: string
-Description: Enter username for rutracker.org
+Description: 2/4. Enter username for rutracker.org
  Bot needs to be signed in to rutracker.org to be able to search for torrents.
  You can use your account if you already have it, or you can create a new one.
 
 Template: tg-torrent-bot/rutracker_password
 Type: string
-Description: Enter password for rutracker.org
+Description: 3/4. Enter password for rutracker.org
+
+Template: tg-torrent-bot/torrents_dir
+Type: string
+Description: 4/4. Enter path to .torrent files directory
+ Here the bot will put .torrent files when user clicks download-link.
+ You can set up your torrent-daemon to listen to this directory.

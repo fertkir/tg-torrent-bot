@@ -15,10 +15,12 @@ if [ -e $CONFIGFILE ]; then
 	db_set tg-torrent-bot/telegram_token "$TELEGRAM_TOKEN"
 	db_set tg-torrent-bot/rutracker_username "$RUTRACKER_USERNAME"
 	db_set tg-torrent-bot/rutracker_password "$RUTRACKER_PASSWORD"
+	db_set tg-torrent-bot/torrents_dir "$TORRENTS_DIR"
 fi
 
 # Ask questions.
 db_input high tg-torrent-bot/telegram_token || true
 db_input high tg-torrent-bot/rutracker_username || true
 db_input high tg-torrent-bot/rutracker_password || true
+db_input high tg-torrent-bot/torrents_dir || true
 db_go || true
