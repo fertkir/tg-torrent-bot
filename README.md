@@ -13,7 +13,7 @@ sudo add-apt-repository ppa:fertkir/tg-torrent-bot
 sudo apt update
 sudo apt install tg-torrent-bot
 ```
-Once you enter bot token (take it from @BotFather) and other setting, the bot will run as a systemd-service.
+Once you enter bot token (take it from [@BotFather](https://t.me/BotFather)) and other settings, the bot will run as a systemd-service.
 
 ### Build
 ```
