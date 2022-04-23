@@ -8,6 +8,9 @@ clean:
 npm_install:
 	cd ${repo_root}/src/js; npm install; cd ${repo_root}
 
+npm_run:
+	cd ${repo_root}/src/js; npm run start;
+
 prepare-build: clean npm_install
 	mkdir -p ${build}
 	cp -r ${repo_root}/debian ${build}/

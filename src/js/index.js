@@ -5,6 +5,8 @@ const pretty = require('prettysize');
 const RutrackerApi = require('rutracker-api-with-proxy');
 const TelegramBot = require('node-telegram-bot-api');
 const { NotAuthorizedError } = require("rutracker-api-with-proxy/lib/errors");
+const { I18n } = require('i18n');
+const path = require('path');
 
 function getRutrackerProxySettings() {
     if (process.env.PROXY_RUTRACKER === 'true' && process.env.PROXY_HOST && process.env.PROXY_PORT) {
@@ -57,6 +59,20 @@ const bot = new TelegramBot(
         }
     }
 );
+
+const i18n = {
+    i18nObj: new I18n({
+        locales: ['en', 'ru'],
+        directory: path.join(__dirname, 'locales')
+    }),
+    __: function (tgMsg, i18nString) {
+        const langCode = tgMsg.from.language_code;
+        return this.i18nObj.__({ 
+            phrase: i18nString, 
+            locale: this.i18nObj.getLocales().includes(langCode) ? langCode : 'en'
+        });
+    }
+}
 
 // main logic
 bot.onText(/^[^\/]/, (msg) => {
@@ -122,7 +138,7 @@ bot.onText(/\/d_(.+)/, (msg, match) => {
 
     wrapQuery(() => rutracker.download(param))
         .then(stream => {
-            bot.sendMessage(msg.chat.id, 'Отправлено на скачивание');
+            bot.sendMessage(msg.chat.id, i18n.__(msg, 'Sent for downloading'));
             return stream.pipe(fs.createWriteStream(`${TORRENTS_DIR}/${param}.torrent`))
         });
 });
@@ -143,7 +159,5 @@ bot.onText(/^\/start|^\/help/, (msg) => {
     if (isForbiddenUser(msg.from.id)) {
         return;
     }
-    const helpMsg = "Отправьте мне название фильма, который хотите скачать.\n"
-                + "Я пришлю варианты.";
-    bot.sendMessage(msg.chat.id, helpMsg);
+    bot.sendMessage(msg.chat.id, i18n.__(msg, 'Help Message'));
 });
