@@ -22,3 +22,25 @@ git clone https://github.com/fertkir/tg-torrent-bot
 cd tg-torrent-bot
 make build-deb
 ```
+
+### Transmission configuration
+
+Stop the transmission-daemon and edit its settings:
+```
+sudo systemctl stop transmission-daemon.service
+sudo vim /etc/transmission-daemon/settings.json
+```
+Make sure `settings.json` contains these settings:
+```
+    "script-torrent-done-enabled": true,
+    "script-torrent-done-filename": "/usr/bin/tg-torrent-bot",
+    "watch-dir": "/home/username/Torrents",
+    "watch-dir-enabled": true
+
+```
+where `/home/username/Torrents` is a .torrent files directory which you've set during installation.
+
+Start the transmission-daemon:
+```
+sudo systemctl start transmission-daemon.service
+```

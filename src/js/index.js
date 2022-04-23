@@ -40,6 +40,7 @@ const RUTRACKER_CREDENTIALS = {
     username: process.env.RUTRACKER_USERNAME,
     password: process.env.RUTRACKER_PASSWORD
 };
+const CURRENT_DOWNLOADS = process.env.CURRENT_DOWNLOADS;
 const TORRENTS_DIR = process.env.TORRENTS_DIR;
 const ALLOWED_USERS = (process.env.ALLOWED_USERS || '').split(',').filter(Number).map(Number);
 
@@ -109,7 +110,14 @@ bot.onText(/\/d_(.+)/, (msg, match) => {
 
     wrapQuery(() => rutracker.getMagnetLink(param))
         .then(link => {
-            fs.writeFile(`${os.homedir}/current-downloads/${link.match(/urn:btih:([a-z0-9]+)&/i)[1].toLowerCase()}`, `${msg.chat.id}`); 
+            fs.writeFile(
+                `${CURRENT_DOWNLOADS}/${link.match(/urn:btih:([a-z0-9]+)&/i)[1].toLowerCase()}`, 
+                `${msg.chat.id}`, 
+                function (err,data) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                });
         });
 
     wrapQuery(() => rutracker.download(param))

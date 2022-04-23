@@ -39,4 +39,7 @@ sed -e "s#^ *TELEGRAM_TOKEN=.*#TELEGRAM_TOKEN=\"${TELEGRAM_TOKEN//#/\\#}\"#" \
     < $CONFIGFILE > $CONFIGFILE.tmp
 mv -f $CONFIGFILE.tmp $CONFIGFILE
 
+
+chown tg-torrent-bot:tg-torrent-bot /var/lib/tg-torrent-bot
+
 #DEBHELPER#
