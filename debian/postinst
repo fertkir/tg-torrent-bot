@@ -16,7 +16,7 @@ if [ ! -e $CONFIGFILE ]; then
     echo 'TELEGRAM_TOKEN='                                        >> $CONFIGFILE
     echo 'RUTRACKER_USERNAME='                                    >> $CONFIGFILE
     echo 'RUTRACKER_PASSWORD='                                    >> $CONFIGFILE
-    echo 'TORRENTS_DIR="/home/username/Torrents"'                 >> $CONFIGFILE
+    echo 'TORRENTS_DIR='                                          >> $CONFIGFILE
     echo 'ALLOWED_USERS='                                         >> $CONFIGFILE
     echo 'RUTRACKER_HOST="http://rutracker.org"'                  >> $CONFIGFILE
     echo ''                                                       >> $CONFIGFILE
