@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+rm -rf /var/lib/tg-torrent-bot
+
+#DEBHELPER#
