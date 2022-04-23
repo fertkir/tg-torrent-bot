@@ -7,4 +7,3 @@ install:
 	mkdir -p ${DESTDIR}/var/lib/tg-torrent-bot
 	cp src/tg-torrent-bot ${DESTDIR}/usr/bin
 	cp -r src/js ${DESTDIR}/usr/share/tg-torrent-bot
-	cp src/main.conf ${DESTDIR}/etc/tg-torrent-bot

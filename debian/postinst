@@ -7,6 +7,33 @@ CONFIGFILE=/etc/tg-torrent-bot/main.conf
 
 . /usr/share/debconf/confmodule
 
+# Generate config file, if it doesn't exist.
+# An alternative is to copy in a template
+# file from elsewhere.
+if [ ! -e $CONFIGFILE ]; then
+    echo '# Telegram Torrent Bot configuration'                    > $CONFIGFILE
+    echo ''                                                       >> $CONFIGFILE
+    echo 'TELEGRAM_TOKEN='                                        >> $CONFIGFILE
+    echo 'RUTRACKER_USERNAME='                                    >> $CONFIGFILE
+    echo 'RUTRACKER_PASSWORD='                                    >> $CONFIGFILE
+    echo 'TORRENTS_DIR="/home/username/Torrents"'                 >> $CONFIGFILE
+    echo 'ALLOWED_USERS='                                         >> $CONFIGFILE
+    echo 'RUTRACKER_HOST="http://rutracker.org"'                  >> $CONFIGFILE
+    echo ''                                                       >> $CONFIGFILE
+    echo '# Should the bot use proxy to access Telegram servers?' >> $CONFIGFILE
+    echo 'PROXY_TELEGRAM="false"'                                 >> $CONFIGFILE
+    echo ''                                                       >> $CONFIGFILE
+    echo '# Should the bot use proxy to access rutracker.org?'    >> $CONFIGFILE
+    echo 'PROXY_RUTRACKER="false"'                                >> $CONFIGFILE
+    echo ''                                                       >> $CONFIGFILE
+    echo '# Proxy settings'                                       >> $CONFIGFILE
+    echo 'PROXY_HOST="127.0.0.1"'                                 >> $CONFIGFILE
+    echo 'PROXY_PORT="8080"'                                      >> $CONFIGFILE
+    echo 'PROXY_USERNAME='                                        >> $CONFIGFILE
+    echo 'PROXY_PASSWORD='                                        >> $CONFIGFILE
+    echo ''                                                       >> $CONFIGFILE
+fi
+
 # Substitute in the values from the debconf db.
 # There are obvious optimizations possible here.
 # The cp before the sed ensures we do not mess up
