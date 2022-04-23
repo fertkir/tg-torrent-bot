@@ -1,3 +1,13 @@
+tg-torrent-bot (0.19) focal; urgency=medium
+
+  * Update README.md
+  * sending notification when download complete
+  * #6 removing /var/lib/tg-torrent-bot in postrm hook
+  * #7 handling configuration file manually
+  * minor change
+
+ -- Kirill Fertikov <kirill.fertikov@gmail.com>  Sat, 23 Apr 2022 22:42:38 +0300
+
 tg-torrent-bot (0.18) focal; urgency=medium
 
   * more improvements
