@@ -15,16 +15,16 @@ sudo apt install tg-torrent-bot
 ```
 Once you enter bot token (take it from [@BotFather](https://t.me/BotFather)) and other settings, the bot will run as a systemd-service.
 
-### Build
+### Integration with Transmission
+Give permission to tg-torrent-bot to write to .torrent files folder:
 ```
-sudo apt install gnupg dput dh-make devscripts lintian git git-buildpackage
-git clone https://github.com/fertkir/tg-torrent-bot
-cd tg-torrent-bot
-make build-deb
+mkdir -p /home/youruser/Torrents
+sudo chown youruser:tg-torrent-bot /home/youruser/Torrents
 ```
-
-### Transmission configuration
-
+Install transmission-daemon, if not installed:
+```
+sudo apt install transmission-daemon
+```
 Stop the transmission-daemon and edit its settings:
 ```
 sudo systemctl stop transmission-daemon.service
@@ -43,4 +43,12 @@ where `/home/username/Torrents` is a .torrent files directory which you've set d
 Start the transmission-daemon:
 ```
 sudo systemctl start transmission-daemon.service
+```
+
+### Build
+```
+sudo apt install gnupg dput dh-make devscripts lintian git git-buildpackage
+git clone https://github.com/fertkir/tg-torrent-bot
+cd tg-torrent-bot
+make build-deb
 ```
