@@ -1,3 +1,10 @@
+tg-torrent-bot (0.20) focal; urgency=medium
+
+  * removed not needed npm dependencies
+  * #8 reordered user creation and chown
+
+ -- Kirill Fertikov <kirill.fertikov@gmail.com>  Sun, 24 Apr 2022 12:06:19 +0300
+
 tg-torrent-bot (0.19) focal; urgency=medium
 
   * Update README.md
