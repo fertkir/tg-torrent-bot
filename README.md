@@ -16,10 +16,10 @@ sudo apt install tg-torrent-bot
 You will be asked for:
 * a bot token (take it from [@BotFather](https://t.me/BotFather)) 
 * rutracker login/password
-* path to folder where bot will put .torrent files, e.g. `/home/<youruser>/Torrents`
+* path to folder where bot will put `.torrent` files, e.g. `/home/<youruser>/Torrents`
 
 Once you complete the setup, the bot will run as a systemd-service.
-Now give the bot permission to write .torrent files to the folder you provided:
+Now give the bot permission to write `.torrent` files to the folder you provided:
 ```
 mkdir -p /home/<youruser>/Torrents
 sudo chown <youruser>:tg-torrent-bot /home/<youruser>/Torrents
@@ -39,11 +39,11 @@ Make sure `settings.json` contains these settings:
 ```
     "script-torrent-done-enabled": true,
     "script-torrent-done-filename": "/usr/bin/tg-torrent-bot",
-    "watch-dir": "/home/username/Torrents",
+    "watch-dir": "/home/<youruser>/Torrents",
     "watch-dir-enabled": true
 
 ```
-where `/home/username/Torrents` is a .torrent files directory which you've set during installation.
+where `/home/<youruser>/Torrents` is a `.torrent` files directory which you've set during installation.
 
 Start the transmission-daemon:
 ```
