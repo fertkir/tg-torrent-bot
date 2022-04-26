@@ -13,14 +13,19 @@ sudo add-apt-repository ppa:fertkir/tg-torrent-bot
 sudo apt update
 sudo apt install tg-torrent-bot
 ```
-Once you enter bot token (take it from [@BotFather](https://t.me/BotFather)) and other settings, the bot will run as a systemd-service.
+You will be asked for:
+* a bot token (take it from [@BotFather](https://t.me/BotFather)) 
+* rutracker login/password
+* path to folder where bot will put .torrent files, e.g. /home/<youruser>/Torrents
+
+Once you complete the setup, the bot will run as a systemd-service.
+Now give the bot permission to write .torrent files to the folder you provided:
+```
+mkdir -p /home/<youruser>/Torrents
+sudo chown <youruser>:tg-torrent-bot /home/<youruser>/Torrents
+```
 
 ### Integration with Transmission
-Give permission to tg-torrent-bot to write to .torrent files folder:
-```
-mkdir -p /home/youruser/Torrents
-sudo chown youruser:tg-torrent-bot /home/youruser/Torrents
-```
 Install transmission-daemon, if not installed:
 ```
 sudo apt install transmission-daemon
