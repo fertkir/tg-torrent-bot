@@ -7,7 +7,7 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-ExecStart=tg-torrent-bot
+ExecStart=/usr/bin/tg-torrent-bot
 User=tg-torrent-bot
 Group=tg-torrent-bot
 
