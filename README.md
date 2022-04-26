@@ -16,7 +16,7 @@ sudo apt install tg-torrent-bot
 You will be asked for:
 * a bot token (take it from [@BotFather](https://t.me/BotFather)) 
 * rutracker login/password
-* path to folder where bot will put .torrent files, e.g. /home/<youruser>/Torrents
+* path to folder where bot will put .torrent files, e.g. `/home/<youruser>/Torrents`
 
 Once you complete the setup, the bot will run as a systemd-service.
 Now give the bot permission to write .torrent files to the folder you provided:
