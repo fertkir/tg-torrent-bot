@@ -1,3 +1,9 @@
+tg-torrent-bot (0.22) focal; urgency=medium
+
+  * /var/lib/tg-torrent-bot fix
+
+ -- Kirill Fertikov <kirill.fertikov@gmail.com>  Mon, 02 May 2022 18:28:01 +0300
+
 tg-torrent-bot (0.21) focal; urgency=medium
 
   * Update README.md
