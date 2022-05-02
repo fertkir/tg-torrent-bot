@@ -1,3 +1,16 @@
+tg-torrent-bot (0.21) focal; urgency=medium
+
+  * Update README.md
+  * Update README.md
+  * Update README.md
+  * Update README.md
+  * Update tg-torrent-bot.service
+  * Update tg-torrent-bot.service
+  * adding tag when creating new version
+  * npm ci instead of npm install
+
+ -- Kirill Fertikov <kirill.fertikov@gmail.com>  Mon, 02 May 2022 14:23:33 +0300
+
 tg-torrent-bot (0.20) focal; urgency=medium
 
   * removed not needed npm dependencies
