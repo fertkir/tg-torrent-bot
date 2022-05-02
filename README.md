@@ -13,18 +13,23 @@ sudo add-apt-repository ppa:fertkir/tg-torrent-bot
 sudo apt update
 sudo apt install tg-torrent-bot
 ```
-Once you enter bot token (take it from [@BotFather](https://t.me/BotFather)) and other settings, the bot will run as a systemd-service.
+You will be asked for:
+* a bot token (take it from [@BotFather](https://t.me/BotFather)) 
+* rutracker login/password
+* path to folder where bot will put `.torrent` files, e.g. `/home/<youruser>/Torrents`
 
-### Build
+Once you complete the setup, the bot will run as a systemd-service.
+Now give the bot permission to write `.torrent` files to the folder you provided:
 ```
-sudo apt install gnupg dput dh-make devscripts lintian git git-buildpackage
-git clone https://github.com/fertkir/tg-torrent-bot
-cd tg-torrent-bot
-make build-deb
+mkdir -p /home/<youruser>/Torrents
+sudo chown <youruser>:tg-torrent-bot /home/<youruser>/Torrents
 ```
 
-### Transmission configuration
-
+### Integration with Transmission
+Install transmission-daemon, if not installed:
+```
+sudo apt install transmission-daemon
+```
 Stop the transmission-daemon and edit its settings:
 ```
 sudo systemctl stop transmission-daemon.service
@@ -34,13 +39,21 @@ Make sure `settings.json` contains these settings:
 ```
     "script-torrent-done-enabled": true,
     "script-torrent-done-filename": "/usr/bin/tg-torrent-bot",
-    "watch-dir": "/home/username/Torrents",
+    "watch-dir": "/home/<youruser>/Torrents",
     "watch-dir-enabled": true
 
 ```
-where `/home/username/Torrents` is a .torrent files directory which you've set during installation.
+where `/home/<youruser>/Torrents` is a `.torrent` files directory which you've set during installation.
 
 Start the transmission-daemon:
 ```
 sudo systemctl start transmission-daemon.service
+```
+
+### Build
+```
+sudo apt install gnupg dput dh-make devscripts lintian git git-buildpackage
+git clone https://github.com/fertkir/tg-torrent-bot
+cd tg-torrent-bot
+make build-deb
 ```
