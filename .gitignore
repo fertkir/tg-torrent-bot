@@ -12,3 +12,4 @@ node_modules
 debhelper-build-stamp
 /src/debian/tg-torrent-bot
 /src/debian/files
+/src/dev.conf
