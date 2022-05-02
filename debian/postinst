@@ -68,4 +68,5 @@ mv -f $CONFIGFILE.tmp $CONFIGFILE
 
 #DEBHELPER#
 
+mkdir -p /var/lib/tg-torrent-bot
 chown tg-torrent-bot:tg-torrent-bot /var/lib/tg-torrent-bot
