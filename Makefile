@@ -24,7 +24,7 @@ new_version:
 	gbp dch --debian-branch=main --git-author --distribution=focal --dch-opt=--upstream
 	git add debian/
 	git commit -m "version ${current_version}"
-	git push
+	git tag ${current_version}
 
 publish:
 	dput ppa:fertkir/tg-torrent-bot ${repo_root}/tg-torrent-bot_${current_version}_source.changes;
