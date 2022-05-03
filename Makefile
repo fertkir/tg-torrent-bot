@@ -15,6 +15,8 @@ prepare-build: clean npm_install
 	mkdir -p ${build}
 	cp -r ${repo_root}/debian ${build}/
 	cp -r ${repo_root}/src ${build}/
+	find ${build}/src/ \( -name ".npmignore" -o  -name ".eslintrc" -o -name ".eslintrc.yml" \
+		-o -name ".gitmodules" -o -name ".gitattributes" \) -delete
 	cp ${repo_root}/DebianMakefile ${build}/Makefile
 
 build-deb: prepare-build
