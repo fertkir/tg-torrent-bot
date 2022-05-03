@@ -1,3 +1,9 @@
+tg-torrent-bot (0.24) focal; urgency=medium
+
+  * lintian fixes
+
+ -- Kirill Fertikov <kirill.fertikov@gmail.com>  Tue, 03 May 2022 18:19:08 +0300
+
 tg-torrent-bot (0.23) focal; urgency=medium
 
   * started i18n
