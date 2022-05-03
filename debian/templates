@@ -1,29 +1,18 @@
 Template: tg-torrent-bot/telegram_token
 Type: string
-Description: 1/4. Enter telegram bot token:
+_Description: 1/4. Enter telegram bot token:
  Open @BotFather bot in Telegram and get a token for the bot.
-Description-ru.UTF-8: 1/4. Введите токен для бота:
- Откройте телеграм-бот @BotFather и получите токен для вашего бота.
 
 Template: tg-torrent-bot/rutracker_username
 Type: string
-Description: 2/4. Enter username for rutracker.org:
- Bot needs to be signed in to rutracker.org to be able to search for torrents.
- You can use your account if you already have it, or you can create a new one.
-Description-ru.UTF-8: 2/4. Введите логин к rutracker.org:
- Боту необходимо залогиниться на rutracker.org, чтобы иметь возможность искать раздачи.
- Вы можете использовать существующий аккаунт или создать для бота новый.
+_Description: 2/4. Enter username for rutracker.org:
+ Bot needs to be signed in to rutracker.org to be able to search for torrents. You can use your account if you already have it, or you can create a new one.
 
 Template: tg-torrent-bot/rutracker_password
 Type: string
-Description: 3/4. Enter password for rutracker.org:
-Description-ru.UTF-8: 3/4. Введите пароль к rutracker.org:
+_Description: 3/4. Enter password for rutracker.org:
 
 Template: tg-torrent-bot/torrents_dir
 Type: string
-Description: 4/4. Enter path to .torrent files directory:
- Here the bot will put .torrent files when user clicks download-link.
- You can set up your torrent-daemon to listen to this directory.
-Description-ru.UTF-8: 4/4. Введите путь к директории с .torrent файлами:
- Сюда бот будет складывать .torrent файлы, когда юзер будет кликать по ссылке на скачивание.
- Вы можете настроить ваш торрент-клиент, чтобы тот автоматом запускал .torrent файлы из этой папки на скачивание.
+_Description: 4/4. Enter path to .torrent files directory:
+ Here the bot will put .torrent files when user clicks download-link. You can set up your torrent-daemon to listen to this directory.

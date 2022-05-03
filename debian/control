@@ -2,7 +2,7 @@ Source: tg-torrent-bot
 Section: web
 Priority: optional
 Maintainer: Kirill Fertikov <kirill.fertikov@gmail.com>
-Build-Depends: debhelper-compat (= 12), dh-sysuser
+Build-Depends: debhelper-compat (= 12), dh-sysuser, po-debconf
 Standards-Version: 4.4.1
 Homepage: https://github.com/fertkir
 #Vcs-Browser: https://github.com/fertkir/tg-torrent-bot

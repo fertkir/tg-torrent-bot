@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022 Kirill Fertikov
+# This file is distributed under the same license as the tg-torrent-bot package.
+# Kirill Fertikov <kirill.fertikov@gmail.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tg-torrent-bot\n"
+"Report-Msgid-Bugs-To: tg-torrent-bot@packages.debian.org\n"
+"POT-Creation-Date: 2022-05-03 18:27+0300\n"
+"PO-Revision-Date: 2022-05-03 19:18+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. Type: string
+#. Description
+#: ../templates:1001
+msgid "1/4. Enter telegram bot token:"
+msgstr "1/4. Введите токен для бота:"
+
+#. Type: string
+#. Description
+#: ../templates:1001
+msgid "Open @BotFather bot in Telegram and get a token for the bot."
+msgstr "Откройте телеграм-бот @BotFather и получите токен для вашего бота."
+
+#. Type: string
+#. Description
+#: ../templates:2001
+msgid "2/4. Enter username for rutracker.org:"
+msgstr "2/4. Введите логин к rutracker.org:"
+
+#. Type: string
+#. Description
+#: ../templates:2001
+msgid ""
+"Bot needs to be signed in to rutracker.org to be able to search for "
+"torrents. You can use your account if you already have it, or you can create "
+"a new one."
+msgstr ""
+"Боту необходимо залогиниться на rutracker.org, чтобы иметь возможность "
+"искать раздачи. Вы можете использовать существующий аккаунт или создать для "
+"бота новый."
+
+#. Type: string
+#. Description
+#: ../templates:3001
+msgid "3/4. Enter password for rutracker.org:"
+msgstr "3/4. Введите пароль к rutracker.org:"
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid "4/4. Enter path to .torrent files directory:"
+msgstr "4/4. Введите путь к директории с .torrent файлами:"
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid ""
+"Here the bot will put .torrent files when user clicks download-link. You can "
+"set up your torrent-daemon to listen to this directory."
+msgstr ""
+"Сюда бот будет складывать .torrent файлы, когда юзер будет кликать по ссылке "
+"на скачивание. Вы можете настроить ваш торрент-клиент, чтобы тот автоматом "
+"запускал .torrent файлы из этой папки на скачивание."
