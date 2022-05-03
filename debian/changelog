@@ -1,3 +1,9 @@
+tg-torrent-bot (0.25) focal; urgency=medium
+
+  * translations for debconf
+
+ -- Kirill Fertikov <kirill.fertikov@gmail.com>  Tue, 03 May 2022 19:24:10 +0300
+
 tg-torrent-bot (0.24) focal; urgency=medium
 
   * lintian fixes
