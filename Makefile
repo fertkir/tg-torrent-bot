@@ -6,7 +6,10 @@ clean:
 	git clean -dfX
 
 npm_install:
-	cd ${repo_root}/src/js; npm ci; cd ${repo_root}
+	cd ${repo_root}/src/js; npm install; cd ${repo_root}
+
+npm_run:
+	cd ${repo_root}/src/js; set -a; . ../dev.conf; set +a; npm run start;
 
 prepare-build: clean npm_install
 	mkdir -p ${build}

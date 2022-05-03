@@ -68,5 +68,9 @@ mv -f $CONFIGFILE.tmp $CONFIGFILE
 
 #DEBHELPER#
 
-mkdir -p /var/lib/tg-torrent-bot
-chown tg-torrent-bot:tg-torrent-bot /var/lib/tg-torrent-bot
+DIR="/var/lib/tg-torrent-bot"
+USER="tg-torrent-bot"
+mkdir -p ${DIR}    
+if id -u ${USER} > /dev/null 2>&1; then    
+    chown ${USER}:${USER} ${DIR}
+fi
