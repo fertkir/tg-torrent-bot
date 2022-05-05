@@ -1,7 +1,6 @@
 name: Deploy to Heroku
 
-on:
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
   build:
@@ -14,8 +13,9 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           usedocker: true
+          docker_heroku_process_type: worker
         env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          RUTRACKER_USERNAME: ${{ secrets.RUTRACKER_USERNAME }}
-          RUTRACKER_PASSWORD: ${{ secrets.RUTRACKER_PASSWORD }}
-          RUTRACKER_HOST: "http://rutracker.org"
+          HD_TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          HD_RUTRACKER_USERNAME: ${{ secrets.RUTRACKER_USERNAME }}
+          HD_RUTRACKER_PASSWORD: ${{ secrets.RUTRACKER_PASSWORD }}
+          HD_RUTRACKER_HOST: "http://rutracker.org"
