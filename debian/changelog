@@ -1,3 +1,14 @@
+tg-torrent-bot (0.26) focal; urgency=medium
+
+  * Create heroku-deploy.yml
+  * Create Dockerfile
+  * Update heroku-deploy.yml
+  * sending .torrent file to chat if torrents dir isn't set
+  * minor fix
+  * minor optimization
+
+ -- Kirill Fertikov <kirill.fertikov@gmail.com>  Fri, 06 May 2022 22:40:44 +0300
+
 tg-torrent-bot (0.25) focal; urgency=medium
 
   * translations for debconf
