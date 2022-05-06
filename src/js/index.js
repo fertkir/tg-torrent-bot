@@ -37,17 +37,19 @@ bot.onText(/^[^\/]/, (msg) => {
 bot.onText(/\/d_(.+)/, (msg, match) => {
     const param = match[1];
 
-    rutracker.getMagnetLink(param)
-        .then(link => {
-            fs.writeFile(
-                `${process.env.CURRENT_DOWNLOADS}/${link.match(/urn:btih:([a-z0-9]+)&/i)[1].toLowerCase()}`, 
-                `${msg.chat.id}`, 
-                function (err,data) {
-                    if (err) {
-                        return console.log(err);
-                    }
-                });
-        });
+    if (process.env.TORRENTS_DIR) {
+        rutracker.getMagnetLink(param)
+            .then(link => {
+                fs.writeFile(
+                    `${process.env.CURRENT_DOWNLOADS}/${link.match(/urn:btih:([a-z0-9]+)&/i)[1].toLowerCase()}`, 
+                    `${msg.chat.id}`, 
+                    function (err,data) {
+                        if (err) {
+                            return console.log(err);
+                        }
+                    });
+            });
+    }
 
     rutracker.download(param)
         .then(stream => {
