@@ -25,7 +25,7 @@ bot.onText(/^[^\/]/, (msg) => {
                         + `S ${torrent.seeds} | L ${torrent.leeches} | ${msg.__('Downloaded')} ${torrent.downloads} | `
                         + `${msg.__('Reg')} ${moment(torrent.registered).format("YYYY-MM-DD")} | ` 
                         + `${msg.__('Size')} ${pretty(torrent.size)}\n`
-                        + `*${msg.__('Download')}*: /d\\_${torrent.id}\n`
+                        + `*${process.env.TORRENTS_DIR ? msg.__('Download') : msg.__('Get .torrent file')}*: /d\\_${torrent.id}\n`
                         + `${msg.__('Get link')}: /m\\_${torrent.id}\n`;
                     })
                 .join("\n");
@@ -51,8 +51,13 @@ bot.onText(/\/d_(.+)/, (msg, match) => {
 
     rutracker.download(param)
         .then(stream => {
-            bot.sendMessage(msg.chat.id, msg.__('Sent for downloading'));
-            return stream.pipe(fs.createWriteStream(`${process.env.TORRENTS_DIR}/${param}.torrent`))
+            if (process.env.TORRENTS_DIR) {
+                bot.sendMessage(msg.chat.id, msg.__('Sent for downloading'));
+                const a = stream.pipe(fs.createWriteStream(`${process.env.TORRENTS_DIR}/${param}.torrent`))
+                return a;
+            } else {
+                bot.sendDocument(msg.chat.id, stream, {}, {filename: param + ".torrent"});
+            }
         });
 });
 

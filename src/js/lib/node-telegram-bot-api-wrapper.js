@@ -53,4 +53,8 @@ TelegramBot.prototype.sendMessage = function () {
 	return this.bot.sendMessage(...arguments);
 }
 
+TelegramBot.prototype.sendDocument = function () {
+	return this.bot.sendDocument(...arguments);
+}
+
 module.exports = TelegramBot;
