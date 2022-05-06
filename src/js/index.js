@@ -53,8 +53,7 @@ bot.onText(/\/d_(.+)/, (msg, match) => {
         .then(stream => {
             if (process.env.TORRENTS_DIR) {
                 bot.sendMessage(msg.chat.id, msg.__('Sent for downloading'));
-                const a = stream.pipe(fs.createWriteStream(`${process.env.TORRENTS_DIR}/${param}.torrent`))
-                return a;
+                stream.pipe(fs.createWriteStream(`${process.env.TORRENTS_DIR}/${param}.torrent`));
             } else {
                 bot.sendDocument(msg.chat.id, stream, {}, {filename: param + ".torrent"});
             }
