@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tg-torrent-bot\n"
 "Report-Msgid-Bugs-To: tg-torrent-bot@packages.debian.org\n"
-"POT-Creation-Date: 2022-05-03 18:27+0300\n"
+"POT-Creation-Date: 2022-05-15 17:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../templates:4001
-msgid "4/4. Enter path to .torrent files directory:"
+msgid "4/4. (optional) Enter path to .torrent files directory:"
 msgstr ""
 
 #. Type: string
@@ -61,5 +61,6 @@ msgstr ""
 #: ../templates:4001
 msgid ""
 "Here the bot will put .torrent files when user clicks download-link. You can "
-"set up your torrent-daemon to listen to this directory."
+"set up your torrent-daemon to listen to this directory. You can leave the "
+"value blank, then the bot will send you .torrent file in a message."
 msgstr ""

@@ -14,5 +14,5 @@ _Description: 3/4. Enter password for rutracker.org:
 
 Template: tg-torrent-bot/torrents_dir
 Type: string
-_Description: 4/4. Enter path to .torrent files directory:
- Here the bot will put .torrent files when user clicks download-link. You can set up your torrent-daemon to listen to this directory.
+_Description: 4/4. (optional) Enter path to .torrent files directory:
+ Here the bot will put .torrent files when user clicks download-link. You can set up your torrent-daemon to listen to this directory. You can leave the value blank, then the bot will send you .torrent file in a message.

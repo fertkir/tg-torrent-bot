@@ -25,6 +25,9 @@ build-deb: prepare-build
 build-src: prepare-build
 	cd ${build}; debuild -S; cd ${repo_root}
 
+update-po:
+	debconf-updatepo
+
 new_version:
 	gbp dch --debian-branch=main --git-author --distribution=focal --dch-opt=--upstream
 	git add debian/
